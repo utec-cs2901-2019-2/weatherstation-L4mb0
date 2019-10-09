@@ -1,9 +1,9 @@
-import java.utils.*;
+import java.util.*;
 
 public class WeatherData implements Subject {
 	public ArrayList<Observer> obs;
-	private float temp;
-	private float humid;
+	private float temperature;
+	private float humidity;
 	private float pressure;
 
 	public WeatherData(){
@@ -15,16 +15,16 @@ public class WeatherData implements Subject {
 	}
 
 	void removeObserver(Observer o){
-		int i = observers.indexOf(o);
+		int i = obs.indexOf(o);
   		if (i >= 0) {
-   			observers.remove(i);
+   			obs.remove(i);
   		}
 	}
 
 	public void notifyObservers() {
-  		for (int i = 0; i < observers.size(); i++) {
-   			Observer observer = (Observer)observers.get(i);
-   			observer.update(temperature, humidity, pressure);
+  		for (int i = 0; i < obs.size(); i++) {
+   			Observer obs = (Observer)obs.get(i);
+   			obs.update(temperature, humidity, pressure);
   		}
  	}
 
